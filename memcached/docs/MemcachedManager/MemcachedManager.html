@@ -1,0 +1,2191 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MemcachedManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MemcachedManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Begin Document</p>
+		<p class="notes">
+			Located in <a class="field" href="_classes---class_MemcachedManager.php.html">/classes/class_MemcachedManager.php</a> (line <span class="field">35</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">MemcachedManager</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$persistentid</span> = <span class="var-default">''</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$prefix</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#addByKey" title="details" class="method-name">addByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addKeyTags" title="details" class="method-name">addKeyTags</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tags</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addMultiKeyTag" title="details" class="method-name">addMultiKeyTag</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#addServer" title="details" class="method-name">addServer</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$host</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$port</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$weight</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#addServers" title="details" class="method-name">addServers</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$servers</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#append" title="details" class="method-name">append</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#appendByKey" title="details" class="method-name">appendByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#cas" title="details" class="method-name">cas</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#casByKey" title="details" class="method-name">casByKey</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#cleanDelete" title="details" class="method-name">cleanDelete</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#decrement" title="details" class="method-name">decrement</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">1</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$timeout</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#deleteByKey" title="details" class="method-name">deleteByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$timeout</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteKeyTags" title="details" class="method-name">deleteKeyTags</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tags</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteMultiKeyTag" title="details" class="method-name">deleteMultiKeyTag</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#fetch" title="details" class="method-name">fetch</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#fetchAll" title="details" class="method-name">fetchAll</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#fetchKeyTags" title="details" class="method-name">fetchKeyTags</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tags</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#flushmc" title="details" class="method-name">flushmc</a>
+											([<span class="var-type">int</span>&nbsp;<span class="var-name">$delay</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#get" title="details" class="method-name">get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">callback</span>&nbsp;<span class="var-name">$cache_cb</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_token</span> = <span class="var-default">NULL</span>], <span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getByKey" title="details" class="method-name">getByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">callback</span>&nbsp;<span class="var-name">$cache_cb</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_token</span> = <span class="var-default">NULL</span>], <span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#getDelayed" title="details" class="method-name">getDelayed</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$with_cas</span> = <span class="var-default">TRUE</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$value_cb</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#getDelayedByKey" title="details" class="method-name">getDelayedByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$with_cas</span> = <span class="var-default">TRUE</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$value_cb</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getFailCallback" title="details" class="method-name">getFailCallback</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$memc</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$item</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getMulti" title="details" class="method-name">getMulti</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_tokens</span> = <span class="var-default">NULL</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$flags</span> = <span class="var-default">NULL</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$cas_tokens</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getMultiByKey" title="details" class="method-name">getMultiByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_tokens</span> = <span class="var-default">NULL</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$flags</span> = <span class="var-default">NULL</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$cas_tokens</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getOption" title="details" class="method-name">getOption</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$option</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getResultCode" title="details" class="method-name">getResultCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getResultMessage" title="details" class="method-name">getResultMessage</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#getServerByKey" title="details" class="method-name">getServerByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getServerList" title="details" class="method-name">getServerList</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getStats" title="details" class="method-name">getStats</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getVersion" title="details" class="method-name">getVersion</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#increment" title="details" class="method-name">increment</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">1</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#prepend" title="details" class="method-name">prepend</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#prependByKey" title="details" class="method-name">prependByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#replace" title="details" class="method-name">replace</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#replaceByKey" title="details" class="method-name">replaceByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#searchForKeys" title="details" class="method-name">searchForKeys</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#set" title="details" class="method-name">set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#setByKey" title="details" class="method-name">setByKey</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#setMulti" title="details" class="method-name">setMulti</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#setMultiByKey" title="details" class="method-name">setMultiByKey</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#setOption" title="details" class="method-name">setOption</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$option</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">71</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a Memcached instance representing the connection to the memcache servers.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">MemcachedManager</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$persistentid</span> = <span class="var-default">''</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$prefix</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$persistentid</span><span class="var-description">: By default the Memcached instances are destroyed at the end of the request.                                 To create an instance that persists between requests, use persistent_id to                                 specify a unique ID for the instance. All instances created with the same                                 persistent_id  will share the same connection.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$prefix</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">add</span> (line <span class="line-number">158</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add an item under a new key.</p>
+<p class="description"><p>Similar to set, but the operation fails if the key already exists.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodadd">add</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$myarray1</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                             RES_NOTSTORED if the key already exists.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expiration</span><span class="var-description">: Some storage commands involve sending an expiration value (relative to an item or                             to an operation requested by the client) to the server. In all such cases, the                             actual value sent may either be Unix time (number of seconds since January 1, 1970,                             as an integer), or a number of seconds starting from current time. In the latter                             case, this number of seconds may not exceed 60*60*24*30 (number of seconds in 30                             days); if the expiration value is larger than that, the server will consider it to                             be real Unix time value rather than an offset from current time. If the expiration                             value is 0 (the default), the item never expires (although it may be deleted from                             the server to make place for other items).</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddByKey" id="addByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addByKey</span> (line <span class="line-number">201</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add an item under a new key on a specific server.</p>
+<p class="description"><p>Functionally equivalent to add, except that the free-form server_key can be used to map the key to a  specific server. This is useful if you need to keep a bunch of related keys on a certain server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddByKey">addByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$myarray1</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                                 RES_NOTSTORED if the key already exists.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			addByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expiration</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddKeyTags" id="addKeyTags"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addKeyTags</span> (line <span class="line-number">1387</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add Tags to a Key.</p>
+<p class="description"><p>For best results, you should namespace your tags. Start all your tags with something consistent, like:  'tag_', and then you can keep that patters going with tags like 'tag_user_', or 'tag_object_' etc.  This will allow you to find things the easiest by _searchTags() to find all tags in that namespace.  So tags like 'tag_user_peter', 'tag_user_janet', 'tag_user_john' can be searched with  _searchTags('_user_') and all your users will be found.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag2'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag3'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag4'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addKeyTags
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tags</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Memcached Key</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tags</span><span class="var-description">: Memcached Tag</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddMultiKeyTag" id="addMultiKeyTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addMultiKeyTag</span> (line <span class="line-number">1433</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add Tag to a Multiple Keys.</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'value1'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'bar'</span><span class="src-sym">,</span><span class="src-str">'value2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddMultiKeyTag">addMultiKeyTag</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_info'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addMultiKeyTag
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: Memcached Keys</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tag</span><span class="var-description">: Memcached Tag</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddServer" id="addServer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addServer</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a server to the server pool.</p>
+<p class="description"><p>Adds the specified server to the server pool. No connection is established to the server at this time,  but if you are using consistent key distribution option, some of the internal data structures will have  to be updated. Thus, if you need to add multiple servers, it is better to use addServers as the update  then happens only once. The same server may appear multiple times in the server pool, because no  ( duplication checks are made. This is not advisable; instead, use the weight option to increase the  selection weighting of this server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'mem1.domain.com'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			addServer
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$host</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$port</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$weight</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$host</span><span class="var-description">: The hostname of the memcache server. If the hostname is invalid, data-related                         operations will set RES_HOST_LOOKUP_FAILURE result code.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$port</span><span class="var-description">: The port on which memcache is running. Usually, this is 11211.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$weight</span><span class="var-description">: The weight of the server relative to the total weight of all the servers in the pool.                         This controls the probability of the server being selected for operations. This is                         used only with consistent distribution option and usually corresponds to the amount                         of memory available to memcache on that server.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddServers" id="addServers"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addServers</span> (line <span class="line-number">292</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add multiple servers to the server pool.</p>
+<p class="description"><p>Adds servers  to the server pool. Each entry in servers is supposed to an array containing hostname, port,  and, optionally, weight of the server. No connection is established to the servers at this time. The same  server may appear multiple times in the server pool, because no duplication checks are made. This is not  advisable; instead, use the weight option to increase the selection weighting of this server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(</span><span class="src-sym">!</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetServerList">getServerList</a><span class="src-sym">(</span><span class="src-sym">)))</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$servers&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11212</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11213</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServers">addServers</a><span class="src-sym">(</span><span class="src-var">$servers</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			addServers
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$servers</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$servers</span><span class="var-description">: Array of the servers to add to the pool.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodappend" id="append"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">append</span> (line <span class="line-number">329</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Append data to an existing item.</p>
+<p class="description"><p>Appends the given value  string to the value of an existing item. The reason that value is forced to be a  string is that appending mixed types is not well-defined. Note: If the OPT_COMPRESSION is enabled, the  operation will fail and a warning will be issued, because appending compressed data to a value that is  potentially already compressed is not possible.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'abc'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodappend">append</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'def'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                         RES_NOTSTORED if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			append
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The string to append.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodappendByKey" id="appendByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">appendByKey</span> (line <span class="line-number">369</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Append data to an existing item on a specific server.</p>
+<p class="description"><p>Functionally equivalent to append, except that the free-form server_key can be used to map the key to a  specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetByKey">setByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'abc'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodappendByKey">appendByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'def'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                                 RES_NOTSTORED if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			appendByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The string to append.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcas" id="cas"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">cas</span> (line <span class="line-number">414</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">C.A.S. Compare and Swap an item.</p>
+<p class="description"><p>Performs a &quot;check and set&quot; operation, so that the item will be stored only if no other client has updated  it since it was last fetched by this client. The check is done via the cas_token parameter which is a  unique 64-bit value assigned to the existing item by memcache. See the documentation for get methods for  how to obtain this token. Note that the token is represented as a double due to the limitations of PHP's  integer space.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetByKey">setByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'abc'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodappendByKey">appendByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'def'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                              RES_DATA_EXISTS if the item you are trying to store has been modified since you                             last fetched it.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			cas
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$cas_token</span><span class="var-description">: Unique value associated with the existing item. Generated by memcache.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expire</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$expiration</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcasByKey" id="casByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">casByKey</span> (line <span class="line-number">449</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">C.A.S. Compare and Swap an item on a specific server.</p>
+<p class="description"><p>Functionally equivalent to cas, except that the free-form server_key can be used to map the key to a  specific server. This is useful if you need to keep a bunch of related keys on a certain server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetByKey">setByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'abc'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodappendByKey">appendByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'def'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                                 RES_DATA_EXISTS if the item you are trying to store has been modified since                                 you last fetched it.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			casByKey
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$cas_token</span><span class="var-description">: Unique value associated with the existing item. Generated by memcache.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expire</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$expiration</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcleanDelete" id="cleanDelete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">cleanDelete</span> (line <span class="line-number">1623</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete Keys and then any tags that might be saved</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'value1'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'bar'</span><span class="src-sym">,</span><span class="src-str">'value2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'bar'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag_user_peter'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_janet'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_john'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag_user_peter'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_janet'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_john'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$keys&nbsp;</span>=&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsearchForKeys">searchForKeys</a><span class="src-sym">(</span><span class="src-str">'_user_'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodcleanDelete">cleanDelete</a><span class="src-sym">(</span><span class="src-var">$keys</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			cleanDelete
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span><span class="var-description">: Keys and Tags to delete from database and memcache</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddecrement" id="decrement"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">decrement</span> (line <span class="line-number">481</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Decrement numeric item's value.</p>
+<p class="description"><p>Decrements a numeric item's value by the specified offset. If the item's value is not numeric, it is  treated as if the value were 0. If the operation would decrease the value below 0, the new value will be 0.  decrement() will fail if the item does not exist.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddecrement">decrement</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-num">5</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddecrement">decrement</a><span class="src-sym">(</span><span class="src-str">'mykey2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns item's new value on success or FALSE on failure. The getResultCode will                         return RES_NOTFOUND if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			decrement
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Key of the item do decrement.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: Decrement the item by value . Optional and defaults to 1.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete</span> (line <span class="line-number">520</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete an item. Deletes the key  from the server.</p>
+<p class="description"><p>The time  parameter is the amount of time in seconds (or Unix time until which) the client wishes the  server to refuse add and replace commands for this key. For this amount of time, the item is put into a  delete queue, which means that it won't possible to retrieve it by the get command, but add and replace  command with this key will also fail (the set command will succeed, however). After the time passes, the  item is finally deleted from server memory. The parameter time defaults to 0 (which means that the item  will be deleted immediately and further storage commands with this key will succeed).</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddelete">delete</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddelete">delete</a><span class="src-sym">(</span><span class="src-str">'mykey2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                         RES_NOTFOUND if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			delete
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$timeout</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key to be deleted.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$timeout</span><span class="var-description">: The amount of time the server will wait to delete the item.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteByKey" id="deleteByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteByKey</span> (line <span class="line-number">550</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete an item from a specific server.</p>
+<p class="description"><p>Functionally equivalent to delete, except that the free-form server_key can be used to map the key to a  specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddeleteByKey">deleteByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddeleteByKey">deleteByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mykey2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                                 RES_NOTFOUND if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			deleteByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$timeout</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key to be deleted.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$timeout</span><span class="var-description">: The amount of time the server will wait to delete the item.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteKeyTags" id="deleteKeyTags"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteKeyTags</span> (line <span class="line-number">1471</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete Tags from a Key</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag2'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag3'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddeleteKeyTags">deleteKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag3'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddeleteKeyTags">deleteKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteKeyTags
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tags</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Memcached Key</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tags</span><span class="var-description">: Memcached Tag</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteMultiKeyTag" id="deleteMultiKeyTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteMultiKeyTag</span> (line <span class="line-number">1517</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete Tag from Multiple Keys.</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'value1'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'bar'</span><span class="src-sym">,</span><span class="src-str">'value2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'bar'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag_user_peter'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_janet'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_john'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag_user_peter'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_janet'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_john'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddeleteMultiKeyTag">deleteMultiKeyTag</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_john'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteMultiKeyTag
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: Memcached Keys</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tag</span><span class="var-description">: Memcached Tag</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfetch" id="fetch"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetch</span> (line <span class="line-number">587</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetch the next result.</p>
+<p class="description"><p>Retrieves the next result from the last request.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-num">99</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'string'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'a&nbsp;simple&nbsp;string'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'array'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">11</span><span class="src-sym">,&nbsp;</span><span class="src-num">12</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetDelayed">getDelayed</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'array'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-key">while&nbsp;</span><span class="src-sym">(</span><span class="src-var">$result&nbsp;</span>=&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodfetch">fetch</a><span class="src-sym">(</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$result</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the next result or FALSE otherwise. The getResultCode will return RES_END if                     result set is exhausted.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			fetch
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodfetchAll" id="fetchAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetchAll</span> (line <span class="line-number">615</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetch the next result.</p>
+<p class="description"><p>Retrieves the next result from the last request.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-num">99</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'string'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'a&nbsp;simple&nbsp;string'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'array'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">11</span><span class="src-sym">,&nbsp;</span><span class="src-num">12</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetDelayed">getDelayed</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'array'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodfetchAll">fetchAll</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the results or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			fetchAll
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodfetchKeyTags" id="fetchKeyTags"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetchKeyTags</span> (line <span class="line-number">1555</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetch Tags associated with a Key</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag2'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag3'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag4'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methoddeleteKeyTags">deleteKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag3'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodfetchKeyTags">fetchKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			fetchKeyTags
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tags</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Memcached Key</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tags</span><span class="var-description">: Memcached Tag</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodflushmc" id="flushmc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">flushmc</span> (line <span class="line-number">641</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Invalidate all items in the cache.</p>
+<p class="description"><p>Invalidates all existing cache items immediately (by default) or after the delay specified. After  invalidation none of the items will be returned in response to a retrieval command (unless it's stored  again under the same key after Memcached::flush() has invalidated the items). The flush does not actually  free all the memory taken up by the existing items; that will happen gradually as new items are stored.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodflushmc">flushmc</a><span class="src-sym">(</span><span class="src-num">10</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			flushmc
+		</span>
+					([<span class="var-type">int</span>&nbsp;<span class="var-name">$delay</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$delay</span><span class="var-description">: Numer of seconds to wait before invalidating the items.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodget" id="get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get</span> (line <span class="line-number">674</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve an item.</p>
+<p class="description"><p>Returns the item that was previously stored under the key. If the item is found and cas_token variable is  provided, it will contain the CAS token value for the item. See cas for how to use CAS tokens. Read-through  caching callback may be specified via cache_cb parameter.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodget">get</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-id">NULL</span><span class="src-sym">,&nbsp;</span><span class="src-id">NULL</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the value stored in the cache or FALSE otherwise. The getResultCode will                                 return RES_NOTFOUND if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">callback</span>&nbsp;<span class="var-name">$cache_cb</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_token</span> = <span class="var-default">NULL</span>], <span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key of the item to retrieve.</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$cache_cb</span><span class="var-description">: Read-through caching callback or NULL. This callback handler will only get executed                                 if the $key DOES NOT exist.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$cas_token</span><span class="var-description">: The variable to store the CAS token in.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$cas_token</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetByKey" id="getByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getByKey</span> (line <span class="line-number">703</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve an item from a specific server.</p>
+<p class="description"><p>Functionally equivalent to get, except that the free-form server_key can be used to map the key to a  specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetByKey">getByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mykey1'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the value stored in the cache or FALSE otherwise. The getResultCode will                                 return RES_NOTFOUND if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">callback</span>&nbsp;<span class="var-name">$cache_cb</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_token</span> = <span class="var-default">NULL</span>], <span class="var-type">float</span>&nbsp;<span class="var-name">$cas_token</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key of the item to retrieve.</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$cache_cb</span><span class="var-description">: Read-through caching callback or NULL.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$cas_token</span><span class="var-description">: The variable to store the CAS token in.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$cas_token</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetDelayed" id="getDelayed"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDelayed</span> (line <span class="line-number">732</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve an item from a specific server.</p>
+<p class="description"><p>Functionally equivalent to get, except that the free-form server_key can be used to map the key to a  specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-num">99</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'string'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'a&nbsp;simple&nbsp;string'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'array'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">11</span><span class="src-sym">,&nbsp;</span><span class="src-num">12</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetDelayed">getDelayed</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'string'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'array'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-id">TRUE</span><span class="src-sym">,&nbsp;</span><span class="src-id">NULL</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			getDelayed
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$with_cas</span> = <span class="var-default">TRUE</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$value_cb</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: Array of keys to request.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$with_cas</span><span class="var-description">: Whether to request CAS token values also.</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$value_cb</span><span class="var-description">: The result callback or NULL.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetDelayedByKey" id="getDelayedByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDelayedByKey</span> (line <span class="line-number">762</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Request multiple items from a specific server</p>
+<p class="description"><p>Functionally equivalent to getDelayed, except that the free-form server_key can be used to map the key to  a specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-num">99</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'string'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'a&nbsp;simple&nbsp;string'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'array'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">11</span><span class="src-sym">,&nbsp;</span><span class="src-num">12</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetDelayedByKey">getDelayedByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'int'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'string'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'array'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-id">TRUE</span><span class="src-sym">,&nbsp;</span><span class="src-id">NULL</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			getDelayedByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$with_cas</span> = <span class="var-default">TRUE</span>], [<span class="var-type">callback</span>&nbsp;<span class="var-name">$value_cb</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: Array of keys to request.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$with_cas</span><span class="var-description">: Whether to request CAS token values also.</span>			</li>
+					<li>
+				<span class="var-type">callback</span>
+				<span class="var-name">$value_cb</span><span class="var-description">: The result callback or NULL.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFailCallback" id="getFailCallback"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFailCallback</span> (line <span class="line-number">1744</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default get callback handler</p>
+<p class="description"><p>This is what is called if no other callback handler was used with get(). This only gets called when  get failed to find the key you were looking for.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getFailCallback
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$memc</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$item</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$memc</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$item</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetMulti" id="getMulti"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMulti</span> (line <span class="line-number">801</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve multiple items</p>
+<p class="description"><p>Similar to get, but instead of a single key item, it retrievess multiple items the keys of which are  specified in the keys  array. If cas_tokens variable is provided, it is filled with the CAS token values  for the found items. The flags  parameter can be used to specify additional options for getMulti().  Currently, the only available option is Memcached::GET_PRESERVE_ORDER that ensures that the keys are  returned in the same order as they were requested in. NOTE: Unlike get it is not possible to specify a  read-through cache callback for getMulti(), because the memcache protocol does not provide information on  which keys were not found in the multi-key request.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$items&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key1'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value1'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key2'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value2'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key3'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value3'</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetMulti">setMulti</a><span class="src-sym">(</span><span class="src-var">$items</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$result&nbsp;</span>=&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetMulti">getMulti</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'key1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'key3'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'badkey'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-var">$cas</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$result</span><span class="src-sym">,&nbsp;</span><span class="src-var">$cas</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the array of found items or FALSE on failure. Use getResultCode                                 if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getMulti
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_tokens</span> = <span class="var-default">NULL</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$flags</span> = <span class="var-default">NULL</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$cas_tokens</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: Array of keys to retrieve.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$cas_tokens</span><span class="var-description">: The variable to store the CAS tokens for the found items.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$flags</span><span class="var-description">: The flags for the get operation.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$cas_tokens</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetMultiByKey" id="getMultiByKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMultiByKey</span> (line <span class="line-number">840</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve multiple items from a specific server</p>
+<p class="description"><p>functionally equivalent to getMulti, except that the free-form server_key can be used to map the keys to a  specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$items&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key1'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value1'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key2'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value2'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key3'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value3'</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetMulti">setMulti</a><span class="src-sym">(</span><span class="src-var">$items</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$result&nbsp;</span>=&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetMultiByKey">getMultiByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'key1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'key3'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'badkey'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-var">$cas</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$result</span><span class="src-sym">,&nbsp;</span><span class="src-var">$cas</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the array of found items or FALSE on failure. Use getResultCode                                 if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getMultiByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">&$cas_tokens</span> = <span class="var-default">NULL</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$flags</span> = <span class="var-default">NULL</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$cas_tokens</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: Array of keys to retrieve.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cas_tokens</span><span class="var-description">: The variable to store the CAS tokens for the found items.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$flags</span><span class="var-description">: The flags for the get operation.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$cas_tokens</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetOption" id="getOption"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOption</span> (line <span class="line-number">868</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve a Memcached option value</p>
+<p class="description"><p>This method returns the value of a Memcached option. Some options correspond to the ones defined by  libmemcached, and some are specific to the extension. See Memcached Constants for more information.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetOption">getOption</a><span class="src-sym">(</span><span class="src-id">Memcached</span><span class="src-sym">::</span><span class="src-id">OPT_COMPRESSION</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the value of the requested option, or FALSE on error.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getOption
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$option</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$option</span><span class="var-description">: One of the Memcached::OPT_* constants.                         SEE: http://www.php.net/manual/en/memcached.constants.php</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetResultCode" id="getResultCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResultCode</span> (line <span class="line-number">896</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the result code of the last operation</p>
+<p class="description"><p>Returns one of the Memcached::RES_* constants that is the result of the last executed Memcached method.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodadd">add</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetResultCode">getResultCode</a><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span>==&nbsp;<span class="src-id">Memcached</span><span class="src-sym">::</span><span class="src-id">RES_NOTSTORED</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;my&nbsp;code</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Result code of the last Memcached operation.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getResultCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetResultMessage" id="getResultMessage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getResultMessage</span> (line <span class="line-number">917</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the message describing the result of the last operation</p>
+<p class="description"><p>Returns a string that describes the result code of the last executed Memcached method.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodadd">add</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-comm">//&nbsp;first&nbsp;time&nbsp;should&nbsp;succeed</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodadd">add</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetResultMessage">getResultMessage</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">,</span><span class="src-str">&quot;\n&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Message describing the result of the last Memcached operation.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getResultMessage
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetServerByKey" id="getServerByKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerByKey</span> (line <span class="line-number">947</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Map a key to a server</p>
+<p class="description"><p>Returns the server that would be selected by a particular server_key in all the *ByKey() operations.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServers">addServers</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mem1.domain.com'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">40</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mem2.domain.com'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">40</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mem3.domain.com'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">20</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetOption">setOption</a><span class="src-sym">(</span><span class="src-id">Memcached</span><span class="src-sym">::</span><span class="src-id">OPT_LIBKETAMA_COMPATIBLE</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetServerByKey">getServerByKey</a><span class="src-sym">(</span><span class="src-str">'user'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetServerByKey">getServerByKey</a><span class="src-sym">(</span><span class="src-str">'log'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/var_dump">var_dump</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetServerByKey">getServerByKey</a><span class="src-sym">(</span><span class="src-str">'ip'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			getServerByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetServerList" id="getServerList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerList</span> (line <span class="line-number">974</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the list of the servers in the pool</p>
+<p class="description"><p>Returns the list of all servers that are in its server pool.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'mem1.domain.com'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'mem1.domain.com'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">67</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetServerList">getServerList</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns the list of all servers in the server pool.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getServerList
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetStats" id="getStats"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStats</span> (line <span class="line-number">995</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get server pool statistics</p>
+<p class="description"><p>Returns an array containing the state of all available memcache servers. See memcache protocol  specification for details on these statistics.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetStats">getStats</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Array of server statistics, one entry per server.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getStats
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetVersion" id="getVersion"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getVersion</span> (line <span class="line-number">1015</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get server pool version info</p>
+<p class="description"><p>Returns an array containing the version info for all available memcache servers.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodgetVersion">getVersion</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Array of server versions, one entry per server.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getVersion
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodincrement" id="increment"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">increment</span> (line <span class="line-number">1037</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Increment item's value</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodincrement">increment</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-num">5</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodincrement">increment</a><span class="src-sym">(</span><span class="src-str">'mykey2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns new item's value on success or FALSE on failure. The                         getResultCode will return RES_NOTFOUND if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			increment
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Key of the item to increment</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: Increment the item by value . Optional and defaults to 1.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprepend" id="prepend"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">prepend</span> (line <span class="line-number">1074</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prepend data to an existing item</p>
+<p class="description"><p>prepends the given value  string to the value of an existing item. The reason that value is forced to be  a string is that prepending mixed types is not well-defined.  Note: If the OPT_COMPRESSION is enabled,  the  operation will fail and a warning will be issued, because appending compressed data to a value that  is potentially already compressed is not possible.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'abc'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodprepend">prepend</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'def'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                         RES_NOTSTORED if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			prepend
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key of the item to prepend the data to.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The string to prepend.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprependByKey" id="prependByKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">prependByKey</span> (line <span class="line-number">1114</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prepend data to an existing item on a specific server</p>
+<p class="description"><p>Functionally equivalent to prepend, except that the free-form server_key can be used to map the key to a  specific server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetByKey">setByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'abc'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodprependByKey">prependByKey</a><span class="src-sym">(</span><span class="src-str">'myserverkey'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'def'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                                 RES_NOTSTORED if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			prependByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key of the item to prepend the data to.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The string to prepend.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodreplace" id="replace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">replace</span> (line <span class="line-number">1152</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Replace the item under an existing key.</p>
+<p class="description"><p>Similar to set, but the operation fails if the key does not exist on the server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodreplace">replace</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$myarray1</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                         RES_NOTSTORED if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			replace
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expire</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodreplaceByKey" id="replaceByKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">replaceByKey</span> (line <span class="line-number">1186</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Replace the item under an existing key on a specific server</p>
+<p class="description"><p>Functionally equivalent to replace, except that the free-form server_key can be used to map the key to a  specific server. This is useful if you need to keep a bunch of related keys on a certain server.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodreplaceByKey">replaceByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$myarray1</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. The getResultCode will return                                 RES_NOTSTORED if the key does not exist.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			replaceByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expire</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsearchForKeys" id="searchForKeys"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">searchForKeys</span> (line <span class="line-number">1586</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search for Namespaced Tag</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,</span><span class="src-str">'bar'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddKeyTags">addKeyTags</a><span class="src-sym">(</span><span class="src-str">'foo'</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'tag_user_peter'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_janet'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'tag_user_john'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="http://www.php.net/print_r">print_r</a><span class="src-sym">(</span><span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><span class="src-id">searchTag</span><span class="src-sym">(</span><span class="src-str">'_user_'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			searchForKeys
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$tag</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tag</span><span class="var-description">: Namespaced Tag Search</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodset" id="set"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">set</span> (line <span class="line-number">1220</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Store an item.</p>
+<p class="description"><p>Stores the value  on a memcache server under the specified key. The expiration  parameter can be used to  control when the value is considered expired. The value can be any valid PHP type except for resources,  because those cannot be represented in a serialized form. If the OPT_COMPRESSION option is turned on, the  serialized value will also be compressed before storage.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodset">set</a><span class="src-sym">(</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$myarray1</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expire</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetByKey" id="setByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setByKey</span> (line <span class="line-number">1256</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Store an item.</p>
+<p class="description"><p>Stores the value  on a memcache server under the specified key. The expiration  parameter can be used to  control when the value is considered expired. The value can be any valid PHP type except for resources,  because those cannot be represented in a serialized form. If the OPT_COMPRESSION option is turned on, the  serialized value will also be compressed before storage.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetByKey">setByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mykey1'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$myarray1</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			setByKey
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expire</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The key under which to store the value.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to store.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expire</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$server_key</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetMulti" id="setMulti"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setMulti</span> (line <span class="line-number">1294</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Store multiple items</p>
+<p class="description"><p>Similar to set, but instead of a single key/value item, it works on multiple items specified in items.  The expiration time applies to all the items at once.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$items&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key1'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value1'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key2'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value2'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key3'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value3'</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetMulti">setMulti</a><span class="src-sym">(</span><span class="src-var">$items</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			setMulti
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$items</span><span class="var-description">: An array of key/value pairs to store on the server.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expiration</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetMultiByKey" id="setMultiByKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setMultiByKey</span> (line <span class="line-number">1329</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Store multiple items</p>
+<p class="description"><p>Similar to set, but instead of a single key/value item, it works on multiple items specified in items.  The expiration time applies to all the items at once.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodaddServer">addServer</a><span class="src-sym">(</span><span class="src-str">'localhost'</span><span class="src-sym">,&nbsp;</span><span class="src-num">11211</span><span class="src-sym">,&nbsp;</span><span class="src-num">33</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$items&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key1'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value1'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key2'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value2'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'key3'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'value3'</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetMultiByKey">setMultiByKey</a><span class="src-sym">(</span><span class="src-str">'server_key'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$items</span><span class="src-sym">,&nbsp;</span><span class="src-num">30</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure. Use getResultCode if necessary.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			setMultiByKey
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$server_key</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$expiration</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server_key</span><span class="var-description">: The key identifying the server to store the value on.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$items</span><span class="var-description">: An array of key/value pairs to store on the server.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$expiration</span><span class="var-description">: The expiration time, defaults to 0. SEE: add() $expiration for more info.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetOption" id="setOption"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOption</span> (line <span class="line-number">1358</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a Memcached option</p>
+<p class="description"><p>This method sets the value of a Memcached option. Some options correspond to the ones defined by  libmemcached, and some are specific to the extension. See Memcached Constants for more information.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">MemcacheManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetOption">setOption</a><span class="src-sym">(</span><span class="src-id">Memcached</span><span class="src-sym">::</span><span class="src-id">OPT_HASH</span><span class="src-sym">,&nbsp;</span><span class="src-id">Memcached</span><span class="src-sym">::</span><span class="src-id">HASH_MURMUR</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mcd</span><span class="src-sym">-&gt;</span><a href="../MemcachedManager/MemcachedManager.html#methodsetOption">setOption</a><span class="src-sym">(</span><span class="src-id">Memcached</span><span class="src-sym">::</span><span class="src-id">OPT_PREFIX_KEY</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;widgets&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE on success or FALSE on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			setOption
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$option</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$option</span><span class="var-description">: Memcached Option</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: Memcached Option Value</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 05 Dec 2009 00:54:59 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
