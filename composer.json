@@ -1,0 +1,12 @@
+{
+	"name": "manifestinteractive/memcachemanager",
+	"type": "library",
+	"description": "memcachemanager library",
+	"autoload": {
+		"classmap": [
+			"memcache/source/classes/class_MemcacheManager.php",
+			"memcached/source/classes/class_MemcachedManager.php",
+			"memcached/source/classes/class_MemcachedReport.php"
+		]
+	}
+}
