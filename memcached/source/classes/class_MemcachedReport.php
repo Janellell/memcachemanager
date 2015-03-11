@@ -33,14 +33,21 @@
  */
 
 class MemcachedReport {
-	
+	/**
+	 * HTML code of report
+	 * @var string
+	 * @see getReport()
+	 */
+	protected $html;
+
 	public function __construct($status){
-		
+		$report = '';
+
 		if(is_array($status)){
 			// show possible issues ?
 			$show_issues = true;
 			$remaining_memory_warn = 1024;
-			
+
 			// colors for report
 			$color_title = '4D89F9';
 			$color_border = 'E4EDFD';
@@ -54,11 +61,11 @@ class MemcachedReport {
 			$color_text1 = '555';
 			$color_text2 = '7E94BE';
 			$color_text_error = '990000';
-			
+
 			// table control
 			$rowheight = 20;
 			$firstcolwidth = 175;
-			
+
 			// add totals for summary
 			$server_bytes = array();
 			$server_limit_maxbytes = array();
@@ -93,7 +100,7 @@ class MemcachedReport {
 			$total_threads = 0;
 			$total_total_connections = 0;
 			$total_total_items = 0;
-	
+
 			// get totals first for all servers
 			foreach($status as $host=>$data){
 				$total_servers += 1;
@@ -136,19 +143,19 @@ class MemcachedReport {
 					if($key=='total_items') $total_total_items += $val;
 				}
 			}
-			
+
 			// set image width
 			$imagewidth = ($total_servers*25);
 			if($imagewidth < 150 && $total_servers > 1) $imagewidth = 150;
 			$totalwidth = ($imagewidth+320);
-			
+
 			// make text strings and labels ... code only supports up to 26 memcache connections with these labels, if you need more, add labels here (AA, AB ...)
 			$alpha = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 			$servers = ($total_servers==1) ? 'Connection':'Connections';
-			
+
 			// configure totals for graphs
 			$imageFreeMemory = round(($total_limit_maxbytes-$total_bytes)/(1024*1024),2);
-	
+
 			$imageUsedMemory = round($total_bytes/(1024*1024),2);
 			$imageUsedPercent = round(($total_bytes/$total_limit_maxbytes)*100,2);
 			$imageFreePercent = (100-$imageUsedPercent);
@@ -167,20 +174,19 @@ class MemcachedReport {
 			$chl = rtrim($chl,'|');
 			$perc = rtrim($perc,',');
 			$totals = rtrim($totals,',');
-			
+
 			// start report
 			$report = "<div id='memcachereport' style='font-family: arial; width: ".($totalwidth+20)."px; margin: 0 auto;'>
 			<h3 style='font-size: 16px; color: #{$color_title}; white-space: nowrap;'>Memache Report &nbsp;&rsaquo;&nbsp; {$total_servers} Server {$servers}</h3>
-			<a href='http://www.manifestinteractive.com' style='font-size: 10px; color: #{$color_subtitle}; text-decoration: none;' target='_blank'>Developed by Peter Schmalfeldt of Manifest Interactive, LLC</a>
 			<table style='font-size: 12px; width: 100%; border: 1px solid #{$color_border}; border-bottom: 0px;' cellpadding='0' cellspacing='0'>";
-			
+
 			$report .= "<tr><td align='center' style='padding: 5px;'><img src='http://chart.apis.google.com/chart?cht=p&amp;chd=t:{$imageFreePercent},{$imageUsedPercent}&amp;chs=320x150&amp;chl=Free%20".str_replace(' ', '%20', $availableMemory)."|Used%20".str_replace(' ', '%20', $usedMemory)."&amp;chco={$color_inactive},{$color_active}' style='float: left;' />";
 			if($total_servers>1) $report .= "<img src='http://chart.apis.google.com/chart?cht=bvs&amp;chs=".($total_servers*25)."x150&amp;chd=t:{$totals}|{$perc}&amp;chco={$color_active},{$color_inactive}&amp;chbh=20&amp;chds=0,100&amp;chl={$chl}&amp;chm=N*f*%,{$color_active},0,-1,9' style='float: right;' />";
 			$report .= "</td></tr></table>";
-			
+
 			// if there is more than one connection, show accumulative summary
 			if($total_servers>1){
-				
+
 				// check for possible issues
 				$total_evictions_display = ($show_issues && $total_evictions > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($total_evictions)." !</span>":$total_evictions;
 				$total_memory_available = ($show_issues && ($total_limit_maxbytes-$total_bytes) < $remaining_memory_warn) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".$this->bsize($total_limit_maxbytes-$total_bytes)." !</span>":$this->bsize($total_limit_maxbytes-$total_bytes);
@@ -189,28 +195,28 @@ class MemcachedReport {
 				$total_incr_misses_display = ($show_issues && $total_incr_misses > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($total_incr_misses)." !</span>":number_format($total_incr_misses);
 				$total_decr_misses_display = ($show_issues && $total_decr_misses > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($total_decr_misses)." !</span>":number_format($total_decr_misses);
 				$total_cas_misses_display = ($show_issues && $total_cas_misses > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($total_cas_misses)." !</span>":number_format($total_cas_misses);
-				
+
 				// add to report
 				$report .= "<table style='font-size: 12px; width: 100%; border: 1px solid #{$color_border};' cellpadding='0' cellspacing='0'>
 				<tr><td colspan='2' style='font-size: 14px; background-color: #{$color_header}; padding: 5px;'><b>Accumulative Memcache Report</b></td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Server Statistics</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Total system time for this instance (seconds:microseconds).'><td height='{$rowheight}' align='right' style='color:#{$color_text1}' width='{$firstcolwidth}'>System CPU Usage &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_rusage_system} Seconds</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total user time for this instance (seconds:microseconds).'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>User CPU Usage &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_rusage_user} Seconds</td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Memory Usage</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of bytes this server is allowed to use for storage.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Memory Allocation &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($total_limit_maxbytes)."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Current number of bytes used by this server to store items.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Memory In Use &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($total_bytes)."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Current number of bytes available to be used by this server to store items.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Memory Available &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_memory_available}</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total number of bytes read by this server from network.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Total Read Memory &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($total_bytes_read)."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Total number of bytes sent by this server to network.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Total Written Memory &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($total_bytes_written)."</td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Connection Information</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Current number of open connections.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Current Connections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($total_curr_connections)."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total number of connections opened since the server started running.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Total Connections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($total_total_connections)."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of yields for connections.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Connection Yields &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($total_conn_yields)."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Number of connection structures allocated by the server.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Connection Structures &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($total_connection_structures)."</td></tr>
-	
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Memcache Statistics</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='The number of times socket listeners were disabled due to hitting the connection limit.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Listeners Disabled &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_listen_disabled_num}</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Number of valid items removed from cache to free memory for new items.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Evections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_evictions_display}</td></tr>
@@ -228,64 +234,108 @@ class MemcachedReport {
 				<tr style='background-color: #{$color_row2};' title='Number of items that have been incremented and not found.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Increment Misses &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_incr_misses_display}</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of keys that have been decremented and found present.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Decrement Hits &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_decr_hits}</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Number of items that have been decremented and not found.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Decrement Misses &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_decr_misses_display}</td></tr>
-	
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Item Information</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Current number of items stored by this instance.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Current Items &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_curr_items}</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total number of items stored during the life of this instance.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Total Items &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$total_total_items}</td></tr>
 				</table>";
 			}
-			
+
 			// show sumamry for each with alpha marker from graph
 			$i=0;
 			foreach($status as $host=>$data){
-				list($host, $port) = split(":", $host, 2);
-				
+				if(!isset($data['rusage_system'])) {
+					$data['rusage_system'] = '';
+				}
+				if(!isset($data['rusage_user'])) {
+					$data['rusage_user'] = '';
+				}
+				if(!isset($data['cmd_flush'])) {
+					$data['cmd_flush'] = 0;
+				}
+				if(!isset($data['conn_yields'])) {
+					$data['conn_yields'] = 0;
+				}
+				if(!isset($data['cas_misses'])) {
+					$data['cas_misses'] = 0;
+				}
+				if(!isset($data['decr_misses'])) {
+					$data['decr_misses'] = 0;
+				}
+				if(!isset($data['incr_misses'])) {
+					$data['incr_misses'] = 0;
+				}
+				if(!isset($data['delete_misses'])) {
+					$data['delete_misses'] = 0;
+				}
+				if(!isset($data['listen_disabled_num'])) {
+					$data['listen_disabled_num'] = 0;
+				}
+				if(!isset($data['cas_badval'])) {
+					$data['cas_badval'] = 0;
+				}
+				if(!isset($data['cas_hits'])) {
+					$data['cas_hits'] = 0;
+				}
+				if(!isset($data['delete_hits'])) {
+					$data['delete_hits'] = 0;
+				}
+				if(!isset($data['incr_hits'])) {
+					$data['incr_hits'] = 0;
+				}
+				if(!isset($data['decr_hits'])) {
+					$data['decr_hits'] = 0;
+				}
+
+				list($host, $port) = explode(":", $host);
+
 				$letter = ($total_servers>1) ? "[ ".$alpha[$i]." ]&nbsp; ":"";
 				$currentUsedMemory = $this->bsize($data['bytes']);
 				$currentAvailableMemory = $this->bsize($data['limit_maxbytes']-$data['bytes']);
 				$currentUsedPercent = round(($data['bytes']/$data['limit_maxbytes'])*100,2);
 				$currentFreePercent = (100-$currentUsedPercent);
-				$accept = ($data['accepting_conns']==1) ? 'Yes':'No';
-				
+				$accept = (isset($data['accepting_conns']) && $data['accepting_conns']==1) ? 'Yes':'No';
+
 				// check for possible issues
 				$evictions_display = ($show_issues && $data['evictions'] > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($data['evictions'])." !</span>":$data['evictions'];
 				$memory_available = ($show_issues && ($data['limit_maxbytes']-$data['bytes']) < $remaining_memory_warn) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".$this->bsize($data['limit_maxbytes']-$data['bytes'])." !</span>":$this->bsize($data['limit_maxbytes']-$data['bytes']);
 				$get_misses_display = ($show_issues && $data['get_misses'] > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($data['get_misses'])." !</span>":number_format($data['get_misses']);
+
 				$delete_misses_display = ($show_issues && $data['delete_misses'] > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($data['delete_misses'])." !</span>":number_format($data['delete_misses']);
 				$incr_misses_display = ($show_issues && $data['incr_misses'] > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($data['incr_misses'])." !</span>":number_format($data['incr_misses']);
 				$decr_misses_display = ($show_issues && $data['decr_misses'] > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($data['decr_misses'])." !</span>":number_format($data['decr_misses']);
 				$cas_misses_display = ($show_issues && $data['cas_misses'] > 0) ? "<span style='color:#{$color_text_error}; text-decoration:blink;'>".number_format($data['cas_misses'])." !</span>":number_format($data['cas_misses']);
-	
+
 				// add to report
 				$report .= "<table class='memcachereport' style='font-size: 12px; width: 100%; margin-top: 10px; border: 1px solid #{$color_border};' cellpadding='0' cellspacing='0'>";
 				if($total_servers>1) $report .= "<tr><td colspan='2' style='padding: 5px;' align='center'><img src='http://chart.apis.google.com/chart?cht=p&amp;chd=t:{$currentFreePercent},{$currentUsedPercent}&amp;chs=300x75&amp;chl=Free%20".str_replace(' ', '%20', $currentAvailableMemory)."|Used%20".str_replace(' ', '%20', $currentUsedMemory)."&amp;chco={$color_inactive},{$color_active}' /></td></tr>";
-				
+
 				$report .= "<tr><td colspan='2' style='font-size: 14px; background-color: #{$color_header}; padding: 5px;'><b>{$letter}{$host} &nbsp; &nbsp;&rsaquo;&nbsp; {$port}</b></td></tr>
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Server Statistics</b></td></tr>
-				
+
 				<tr style='background-color: #{$color_row1};' title='1 or 0 to indicate whether the server is currently accepting connections or not.'><td width='{$firstcolwidth}' align='right' height='{$rowheight}' style='color:#{$color_text1}'>Accepting Connections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$accept."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Version string of this instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Memcache Version &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['version']."</td></tr>
-				<tr style='background-color: #{$color_row1};' title='Process id of the memcached instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Process ID &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['pid']."</td></tr>			
+				<tr style='background-color: #{$color_row1};' title='Process id of the memcached instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Process ID &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['pid']."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Size of pointers for this host specified in bits (32 or 64).'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Pointer Size &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['pointer_size']."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of worker threads requested.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Threads &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['threads']."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Total system time for this instance (seconds:microseconds).'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>System CPU Usage &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['rusage_system']."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total user time for this instance (seconds:microseconds).'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>User CPU Usage &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$data['rusage_user']."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Start Time for this memcached instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Start Time &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".date('F jS, Y g:i:sA T',$data['time']-$data['uptime'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Uptime for this memcached instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Uptime &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->duration($data['time']-$data['uptime'])."</td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Memory Usage</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of bytes this server is allowed to use for storage.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Memory Allocation &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($data['limit_maxbytes'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Current number of bytes used by this server to store items.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Memory In Use &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($data['bytes'])."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Current number of bytes available to be used by this server to store items.'><td height='{$rowheight}' align='right' style='color:#{$color_text1}'>Memory Available &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$memory_available}</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total number of bytes read by this server from network.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Total Read Memory &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($data['bytes_read'])."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Total number of bytes sent by this server to network.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Total Written Memory &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".$this->bsize($data['bytes_written'])."</td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Connection Information</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Current number of open connections.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Current Connections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['curr_connections'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total number of connections opened since the server started running. 	'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Total Connections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['total_connections'])."</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of yields for connections.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Connection Yields &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['conn_yields'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Number of connection structures allocated by the server.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Connection Structures &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['connection_structures'])."</td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Memcache Statistics</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='The number of times socket listeners were disabled due to hitting the connection limit.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Listeners Disabled &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['listen_disabled_num'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Number of valid items removed from cache to free memory for new items.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Evections &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$evictions_display}</td></tr>
@@ -303,22 +353,33 @@ class MemcachedReport {
 				<tr style='background-color: #{$color_row2};' title='Number of items that have been incremented and not found.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Increment Misses &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$incr_misses_display}</td></tr>
 				<tr style='background-color: #{$color_row1};' title='Number of keys that have been decremented and found present.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Decrement Hits &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['decr_hits'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Number of items that have been decremented and not found.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Decrement Misses &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;{$decr_misses_display}</td></tr>
-				
+
 				<tr><td colspan='2' style='font-size: 12px; background-color: #{$color_section}; padding: 5px;'><b>Item Information</b></td></tr>
 				<tr style='background-color: #{$color_row1};' title='Current number of items stored by this instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Current Items &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['curr_items'])."</td></tr>
 				<tr style='background-color: #{$color_row2};' title='Total number of items stored during the life of this instance.'><td align='right' height='{$rowheight}' style='color:#{$color_text1}'>Total Items &nbsp;&rsaquo;&nbsp;</td><td style='color:#{$color_text2}'>&nbsp;".number_format($data['total_items'])."</td></tr>
-				
-				</table><br />";
+
+				</table><br />
+				<a href='http://www.manifestinteractive.com' style='font-size: 10px; color: #{$color_subtitle}; text-decoration: none;' target='_blank'>Developed by Peter Schmalfeldt of Manifest Interactive, LLC</a>
+				";
 				$i++;
 			}
 			$report .= "</div>";
-			echo $report;
+			$this->html = $report;
 		}
 	}
 
 	/**
+	 * Get the HTML code of the report;
+	 *
+	 * @return string
+	 */
+	public function getReport() {
+		return $this->html;
+	}
+
+	/**
 	  * Convert bytes into human readable format
-	  * 
+	  *
 	  * @param int $s Size to convert
 	  * @return string Size Measurement
 	  */
@@ -329,7 +390,7 @@ class MemcachedReport {
 		}
 		return round($s,2)." {$k}B";
 	}
-	
+
 	/**
 	  * Get Time Duration from Passed Unicode Time
 	  *
